@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background: #92bde7;
+    color: #485e74;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5em;
+    padding-bottom: 3em;
+    display: grid;
+    grid-template-areas: 
+    "possession"
+    "timer"
+    "blinds";
+      
+}
+.possession {
+    grid-area: 'possession';
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2.5rem;
+}
+.player {
+    font-size: 30px;
+}
+.player > * {
+    text-align: center;
+}
+.player-name {
+    display: none;
+}
+.player-input {
+    padding: 1em;
+    border-bottom: 3px solid #485e74;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    /* border-radius: 5px; */
+    font-size: 30px;
+    text-align: center;
+    background: #92bde7;
+    color: #485e74;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #485e74;
+    opacity: 1; /* Firefox */
+}
+.arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fa {
+    color: #485e74;
+    font-size: 32px;
+}
+.hidden {
+    color: #92bde7;
+}
+.timer {
+    grid-area: 'timer';
+    text-align: center;
+}
+.display__time-left {
+    font-size: 140px;
+    margin-top: -2rem;
+}
+#time-input {
+    padding: 1em;
+    border: 2px solid #485e74;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+#submit-time-change {
+    padding: 1em;
+    border: 2px solid #485e74;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    background: #FFF;
+    width: 200px;
+    cursor: pointer;
+    color: #485e74;
+}
+.start-stop {
+    margin-top: -4rem;
+    margin-bottom: 1rem;
+}
+.start-stop > * {
+    padding: 1em;
+    border: 2px solid #485e74;
+    border-radius: 5px;
+    font-size: 32px;
+    text-align: center;
+    background: #FFF;
+    width: 200px;
+    font-weight: bold;
+    color: #485e74;
+    cursor: pointer;
+}
+#custom {
+    /* margin-bottom: 5rem; */
+}
+#increment {
+    font-size: 18px;
+    font-weight: bold;
+}
+.blinds {
+    grid-area: 'blinds';
+    display: flex;
+    justify-content: space-between;
+    max-width: 850px;
+    margin-left: 38%;
+    margin-right: 38%;
+    margin-top: 2rem;
+}
+.blinds > * {
+    text-align: center;
+}
+.blind-amount {
+    font-size: 40px;
+    margin-top: 1rem;
+}
+.rick-roll-hidden {
+    display: none;
+}
+.rick-roll-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
