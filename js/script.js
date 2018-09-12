@@ -150,7 +150,9 @@ function init () {
     //display big and small blinds
 }
 
-//customTime button
+/***********Event Listeners*********/
+
+//customTime select
 timeInput.addEventListener('change', changeTimeInput);
 
 //play button
