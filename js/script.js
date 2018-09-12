@@ -1,3 +1,4 @@
+/*******DOM Elements********/
 const timerDisplay = document.querySelector('.display__time-left');
 const playButton = document.getElementById('play');
 const pauseButton = document.getElementById('pause');
@@ -11,13 +12,20 @@ const bigBlindShow = document.querySelector('.big-blind-amount');
 const smallBlindShow = document.querySelector('.small-blind-amount');
 const popup = document.querySelector('.rick-roll');
 const video = document.querySelector('.rick-roll-vid');
-let intervalMinutes = 15;
-let intervalSeconds = intervalMinutes * 60;
+
+/********Application State*************/
+const state = {
+    intervalMinutes: 15,
+    bigBlind: 50
+}
+
+/**********Variables Defined*********/
+let intervalSeconds = state.intervalMinutes * 60;
 let secondsLeft;
 let countdown;
-let bigBlind = 50;
-let smallBlind = bigBlind / 2;
+let smallBlind = state.bigBlind / 2;
 
+/*************Timer Functionality******************/
 function timer(seconds) {
     // clear any existing timers
     clearInterval(countdown);
@@ -60,11 +68,11 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainderSeconds = seconds % 60;
-  const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
-  document.title = display;
-  timerDisplay.textContent = display;
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+    const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+    document.title = display;
+    timerDisplay.textContent = display;
 }
 
 function displayEndTime(timestamp) {
@@ -87,7 +95,7 @@ function pauseTimer() {
 
 function resetTimer() {
     clearInterval(countdown);
-    intervalSeconds = intervalMinutes * 60;
+    intervalSeconds = state.intervalMinutes * 60;
     displayTimeLeft(intervalSeconds);
 }
 
@@ -113,23 +121,21 @@ function rickRoll () {
 }
 
 function updateBlinds () {
-    if (bigBlind < 400) {
-        bigBlind *= 2;
+    if (state.bigBlind < 400) {
+        state.bigBlind *= 2;
         smallBlind *= 2;
     }  else {
-        bigBlind = 300;
+        state.bigBlind = 300;
         smallBlind = 600;
     }
-    bigBlindShow.textContent = `$${bigBlind}`;
+    bigBlindShow.textContent = `$${state.bigBlind}`;
     smallBlindShow.textContent = `$${smallBlind}`;
 }
 
 function changeTimeInput (e) {
     e.preventDefault();
-    intervalMinutes = timeInput.value;
+    state.intervalMinutes = timeInput.value;
     intervalSeconds = timeInput.value * 60;
-    timeInput.placeholder = "Change Time Increment";
-    increment.textContent = `${intervalMinutes} minutes.`;
     resetTimer();
     displayTimeLeft(intervalSeconds);
 }
@@ -141,13 +147,11 @@ function endTime () {
 function init () {
     rightArrow.classList.add('hidden');
     displayTimeLeft(intervalSeconds);
-    increment.textContent = `${intervalMinutes} minutes.`;
     //display big and small blinds
-
 }
 
 //customTime button
-customTime.addEventListener('submit', changeTimeInput);
+timeInput.addEventListener('change', changeTimeInput);
 
 //play button
 playButton.addEventListener('click', startTimer);

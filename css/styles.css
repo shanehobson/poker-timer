@@ -19,6 +19,30 @@ body {
     "blinds";
       
 }
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -70px;
+}
+
+.instructions-title {
+    font-size: 42px;
+    margin-top: 0;
+}
+
+.instructions-text {
+    margin-top: -20px;
+    text-indent: 30px;
+    line-height: 1.6;
+}
+
 .possession {
     grid-area: 'possession';
     display: flex;
@@ -26,7 +50,7 @@ body {
     margin-bottom: 2.5rem;
 }
 .player {
-    font-size: 30px;
+    font-size: 24px;
 }
 .player > * {
     text-align: center;
@@ -40,7 +64,7 @@ body {
     border-top: none;
     border-right: none;
     border-left: none;
-    /* border-radius: 5px; */
+    outline: none;
     font-size: 30px;
     text-align: center;
     background: #92bde7;
@@ -67,7 +91,7 @@ body {
     text-align: center;
 }
 .display__time-left {
-    font-size: 140px;
+    font-size: 110px;
     margin-top: -2rem;
 }
 #time-input {
@@ -96,7 +120,7 @@ body {
     padding: 1em;
     border: 2px solid #485e74;
     border-radius: 5px;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     background: #FFF;
     width: 200px;
@@ -104,9 +128,7 @@ body {
     color: #485e74;
     cursor: pointer;
 }
-#custom {
-    /* margin-bottom: 5rem; */
-}
+
 #increment {
     font-size: 18px;
     font-weight: bold;

@@ -10,52 +10,68 @@
 </head>
 <body>
     <div class="container">
-        <div class="possession">
-            <div class="arrow arrow-left">
-                <i class="fa fa-arrow-left"></i>
-            </div>
-            <div class="player player-one">
-                <h4 class="player-name">Player 1</h4>
-                <input type="text" class="player-input" placeholder="Player One">
-            </div>
-            <div class="player player-two">
-                <h4 class="player-name">Player 2</h4>
-                <input type="text" class="player-input" placeholder="Player Two">
-            </div>
-            <div class="arrow arrow-right">
-                <i class="fa fa-arrow-right"></i>
-            </div>
+        <div class="instructions-container">
+            <h2 class="instructions-title">Poker Blinds Tracker</h2>
+            <p class='instructions-text'>At its simplest, this app serves as a timer to track when blinds go up in a poker game.
+                The timer goes off every 15 minutes to indicate that blinds should go up. The values for the small blind and big blind are displayed at the bottom of the page. 
+                You can change the time increment or the blinds structure near the bottom of the page under "Settings."
+                If you are playing heads up poker and wish to alternate which player pays the big blind when blinds increase, the arrows next to each players' name indicate whose turn it is to pay the big blind.
+            </p>
         </div>
-        <div class="timer">
-            <h2>Blinds Go Up In:</h2>
-            <h1 class="display__time-left">00:00</h1>
-            <div class="start-stop">
-                <button id="play"><i class="fa fa-play"></i></button>
-                <button id="pause"><i class="fa fa-pause"></i></button>
-                <button id="reset">RESET</button>
+        <div class="gameplayer-container">
+            <div class="possession">
+                    <div class="arrow arrow-left">
+                        <i class="fa fa-arrow-left"></i>
+                    </div>
+                    <div class="player player-one">
+                        <h4 class="player-name">Player 1</h4>
+                        <input type="text" class="player-input" placeholder="Player One">
+                    </div>
+                    <div class="player player-two">
+                        <h4 class="player-name">Player 2</h4>
+                        <input type="text" class="player-input" placeholder="Player Two">
+                    </div>
+                    <div class="arrow arrow-right">
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="timer">
+                    <h2>Blinds Go Up In:</h2>
+                    <h1 class="display__time-left">00:00</h1>
+                    <div class="start-stop">
+                        <button id="play"><i class="fa fa-play"></i></button>
+                        <button id="pause"><i class="fa fa-pause"></i></button>
+                        <button id="reset">RESET</button>
+                    </div>
+               
+                    <p id="blinds-statement">Blinds go up every
+                            <select name="minutes" id="time-input">
+                                <option value='5'>5</option>
+                                <option value='10'>10</option>
+                                <option value='15' selected>15</option>
+                                <option value='20'>20</option>
+                                <option value='25'>25</option>
+                                <option value='30'>30</option>
+                            </select> minutes.
+                        </p>   
+                </div>
+                <div class="blinds">
+                    <div class="small-blind">
+                        <h7>Small Blind</h7>
+                        <h4 class="blind-amount small-blind-amount">$25</h4>
+                    </div>
+                    <div class="big-blind">
+                        <h7>Big Blind</h7>
+                        <h4 class="blind-amount big-blind-amount">$50</h4>
+                    </div>
+                </div>
             </div>
-            <form name="customForm" id="custom">
-                <input type="text" id="time-input" name="minutes" placeholder="Change Time Increment">
-                <button type="submit" id="submit-time-change">Submit</button>
-            </form>
-            <p id="blinds-statement">Blinds go up every <span id="increment">15 minutes.</span></p>
+            <div class="rick-roll rick-roll-hidden">
+                <video class="rick-roll-vid" width="1000" height="750" controls>
+                    <source src="video/rickroll.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
         </div>
-        <div class="blinds">
-            <div class="small-blind">
-                <h7>Small Blind</h7>
-                <h4 class="blind-amount small-blind-amount">$25</h4>
-            </div>
-            <div class="big-blind">
-                <h7>Big Blind</h7>
-                <h4 class="blind-amount big-blind-amount">$50</h4>
-            </div>
-        </div>
-    </div>
-    <div class="rick-roll rick-roll-hidden">
-        <video class="rick-roll-vid" width="1000" height="750" controls>
-            <source src="video/rickroll.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
     </div>
     <script src="js/script.js"></script>
 </body>
