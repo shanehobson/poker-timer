@@ -33,7 +33,7 @@ body {
 }
 
 .instructions-title {
-    font-size: 42px;
+    font-size: 46px;
     margin-top: 0;
 }
 
@@ -95,7 +95,7 @@ body {
     font-size: 22px;
 }
 .display__time-left {
-    font-size: 110px;
+    font-size: 100px;
     margin-top: -2rem;
 }
 #time-input,
