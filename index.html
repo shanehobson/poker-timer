@@ -15,7 +15,7 @@
             <p class='instructions-text'>This app serves as a way to track blinds in a poker game.
                 The timer goes off every 15 minutes to indicate when blinds should go up. The values for the small blind and big blind are displayed at the bottom of the page. 
                 You can change the time increment and the blinds structure near the bottom of the page under the "Play" and "Pause" buttons.
-                If you are playing heads-up poker and wish to alternate which player pays the big blind each time blinds increase, the arrows next to each player's name indicate whose turn it is to pay the big blind.
+                If you are playing heads-up poker and wish to alternate which player pays the big blind each time blinds increase, the alternating arrows next to each player's name indicate whose turn it is to pay the big blind.
             </p>
         </div>
         <div class="gameplayer-container">
@@ -43,17 +43,44 @@
                         <button id="pause"><i class="fa fa-pause"></i></button>
                         <button id="reset">RESET</button>
                     </div>
-               
+                    <h2>Settings:</h2>
                     <p id="blinds-statement">Blinds go up every
-                            <select name="minutes" id="time-input">
-                                <option value='5'>5</option>
-                                <option value='10'>10</option>
-                                <option value='15' selected>15</option>
-                                <option value='20'>20</option>
-                                <option value='25'>25</option>
-                                <option value='30'>30</option>
-                            </select> minutes.
-                        </p>   
+                        <select name="minutes" id="time-input">
+                            <option value='5'>5</option>
+                            <option value='10'>10</option>
+                            <option value='15' selected>15</option>
+                            <option value='20'>20</option>
+                            <option value='25'>25</option>
+                            <option value='30'>30</option>
+                        </select> minutes.
+                    </p> 
+                    <p id="big-blind-init"> &nbsp; Big blind starts at $
+                        <select name="minutes" id="blind-input">
+                            <option value='20'>20</option>
+                            <option value='50' selected>50</option>
+                            <option value='100'>100</option>
+                            <option value='500'>500</option>
+                            <option value='1000'>1,000</option>
+                            <option value='5000'>5,000</option>
+                        </select>.
+                    </p> 
+                    <p id="blinds-cap">&nbsp; Big blind will be capped at $
+                        <select name="minutes" id="cap-input">
+                            <option value='200'>200</option>
+                            <option value='400'>400</option>
+                            <option value='600' selected>600</option>
+                            <option value='800'>800</option>
+                            <option value='1000'>1,000</option>
+                            <option value='1200'>1,200</option>
+                            <option value='2000'>2,000</option>
+                            <option value='10000'>10,000</option>
+                            <option value='20000'>20,000</option>
+                            <option value='40000'>40,000</option>
+                            <option value='60000'>60,000</option>
+                            <option value='80000'>80,000</option>
+                            <option value='100000'>100,000</option>
+                        </select>.
+                    </p> 
                 </div>
                 <div class="blinds">
                     <div class="small-blind">

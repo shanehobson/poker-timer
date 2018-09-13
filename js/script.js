@@ -5,6 +5,8 @@ const pauseButton = document.getElementById('pause');
 const resetButton = document.getElementById('reset');
 const customTime = document.getElementById('custom');
 const timeInput = document.getElementById('time-input');
+const bigBlindInit = document.getElementById('blind-input');
+const bigBlindCap = document.getElementById('cap-input');
 const increment = document.getElementById('increment');
 const leftArrow = document.querySelector('.fa-arrow-left');
 const rightArrow = document.querySelector('.fa-arrow-right');
@@ -15,8 +17,9 @@ const video = document.querySelector('.rick-roll-vid');
 
 /********Application State*************/
 const state = {
-    intervalMinutes: 15,
-    bigBlind: 50
+    intervalMinutes: timeInput.value,
+    bigBlind: bigBlindInit.value,
+    bigBlindCap: bigBlindCap.value
 }
 
 /**********Variables Defined*********/
@@ -121,12 +124,12 @@ function rickRoll () {
 }
 
 function updateBlinds () {
-    if (state.bigBlind < 400) {
+    if (state.bigBlind * 2 <= state.bigBlindCap) {
         state.bigBlind *= 2;
         smallBlind *= 2;
-    }  else {
-        state.bigBlind = 300;
-        smallBlind = 600;
+    } else {
+        state.bigBlind = state.bigBlindCap;
+        smallBlind = state.bigBlindCap / 2;
     }
     bigBlindShow.textContent = `$${state.bigBlind}`;
     smallBlindShow.textContent = `$${smallBlind}`;
@@ -140,20 +143,36 @@ function changeTimeInput (e) {
     displayTimeLeft(intervalSeconds);
 }
 
-function endTime () {
+function changeBlindSettings(e) {
+    e.preventDefault();
+    state.bigBlind = bigBlindInit.value;
+    smallBlind = bigBlindInit.value / 2;
+    bigBlindShow.textContent = `$${state.bigBlind}`;
+    smallBlindShow.textContent = `$${smallBlind}`;
+}
 
+function changeBigBlindCap(e) {
+    e.preventDefault();
+    state.bigBlindCap = e.target.value;
 }
 
 function init () {
     rightArrow.classList.add('hidden');
     displayTimeLeft(intervalSeconds);
-    //display big and small blinds
+    bigBlindShow.textContent = `$${state.bigBlind}`;
+    smallBlindShow.textContent = `$${smallBlind}`;
 }
 
 /***********Event Listeners*********/
 
-//customTime select
+//time settings input
 timeInput.addEventListener('change', changeTimeInput);
+
+//big blind settings input
+bigBlindInit.addEventListener('change', changeBlindSettings);
+
+//big blind cap input
+bigBlindCap.addEventListener('change', changeBigBlindCap);
 
 //play button
 playButton.addEventListener('click', startTimer);

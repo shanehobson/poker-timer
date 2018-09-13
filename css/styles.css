@@ -39,7 +39,7 @@ body {
 
 .instructions-text {
     margin-top: -20px;
-    text-indent: 30px;
+    text-align: center;
     line-height: 1.6;
 }
 
@@ -50,7 +50,7 @@ body {
     margin-bottom: 2.5rem;
 }
 .player {
-    font-size: 24px;
+    font-size: 20px;
 }
 .player > * {
     text-align: center;
@@ -90,11 +90,17 @@ body {
     grid-area: 'timer';
     text-align: center;
 }
+.timer > p {
+    display: inline;
+    font-size: 22px;
+}
 .display__time-left {
     font-size: 110px;
     margin-top: -2rem;
 }
-#time-input {
+#time-input,
+#blind-input,
+#cap-input {
     padding: .5em;
     border: 2px solid #485e74;
     border-radius: 5px;
