@@ -5,7 +5,7 @@ const babelPolyfill = require('babel-polyfill');
 
 //Compile ES2015 with Babel and route to /dist
 gulp.task('babel', function () {
-    return gulp.src('js/script.js')
+    return gulp.src('src/js/script.js')
       .pipe(babel())
       .pipe(gulp.dest("dist/js"));
 });
